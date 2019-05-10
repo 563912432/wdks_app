@@ -15,6 +15,7 @@ const store = new Vuex.Store({
     simulate: 2,
     vip: 3,
     special: 4,
+    zhenti: 5,
     host: '/',
     courseType: {
       'video': 2,
@@ -284,13 +285,13 @@ const store = new Vuex.Store({
     // 登陆
     handleLogin ({commit, state}, data) {
       Vue.http.post(state.host + 'Api/User/login.html', data.data, {emulateJSON: true}).then(response => {
-        if (response.ok && response.body.status === 1) {
-          commit('setUserInfo', JSON.parse(response.body.info))
+        if (response.ok && response.body.code === 1) {
+          commit('setUserInfo', response.body.data)
           commit('setLogin', true)
           Vue.cookie.set('user', JSON.stringify({tel: data.data.tel, pwd: data.data.pwd}), {expires: 7})
           data.success()
         } else {
-          data.failed(response.body.info)
+          data.failed(response.body.message)
         }
       }).catch(response => {
         data.failed('连接超时')

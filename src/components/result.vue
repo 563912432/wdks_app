@@ -178,6 +178,8 @@
           this.$router.push({path: '/chapter_paper/' + cid})
         } else if (this.$store.state.paperInfo.type === '2') {
           this.$router.push({path: '/simulate_paper/' + cid})
+        } else if (this.$store.state.paperInfo.type === '5') {
+          this.$router.push({path: '/zhenti_paper/' + cid})
         } else {
           this.$router.push({path: '/vip_paper/' + cid})
         }

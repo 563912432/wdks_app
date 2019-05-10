@@ -90,6 +90,15 @@ export default new Router({
       component: require('@/components/vip_paper')
     },
     {
+      path: '/zhenti_paper/:tid',
+      name: 'zhenti_paper',
+      meta: {
+        // 添加该字段，表示进入这个路由是需要登录的
+        requireAuth: true
+      },
+      component: require('@/components/zhenti_paper')
+    },
+    {
       path: '/exam/:tid(\\d+)/:pid(\\d+)/:progress_id(\\d+)?',
       name: 'exam',
       meta: {

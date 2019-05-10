@@ -48,6 +48,8 @@
           this.$router.push({path: '/simulate_paper/' + this.$route.params.tid})
         } else if (this.$store.state.paperInfo.type === '4') {
           this.$router.push({path: '/special_paper/' + this.$route.params.tid})
+        } else if (this.$store.state.paperInfo.type === '5') {
+          this.$router.push({path: '/zhenti_paper/' + this.$route.params.tid})
         } else {
           this.$router.push({path: '/vip_paper/' + this.$route.params.tid})
         }

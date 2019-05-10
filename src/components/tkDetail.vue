@@ -24,25 +24,31 @@
       <div class="row">
         <span @click="goRouter(1)">
           <i class="icon iconfont icon-zhuantilianxi"></i>
-          <b>章节测试</b>
+          <b>章节练习</b>
         </span>
-        <span @click="goRouter(2)">
-          <i class="icon iconfont icon-Ontrial"></i>
-          <b>模拟测试</b>
-        </span>
-      </div>
-      <div class="row">
         <span @click="goRouter(3)">
           <i class="icon iconfont icon-vip1"></i>
           <b>考前密卷</b>
         </span>
-        <span @click="goRouter(7)" v-show="isShow">
-          <i class="icon iconfont icon-dayi"></i>
-          <b>我的答疑</b>
+      </div>
+      <div class="row">
+         <span @click="goRouter(9)">
+          <i class="icon iconfont icon-qiandao1"></i>
+          <b>历年真题</b>
         </span>
+        <span @click="goRouter(2)">
+          <i class="icon iconfont icon-Ontrial"></i>
+          <b>模拟考试</b>
+        </span>
+      </div>
+      <div class="row">
         <span @click="goRouter(4)">
           <i class="icon iconfont icon-jindu"></i>
           <b>载入进度</b>
+        </span>
+        <span @click="goRouter(6)">
+          <i class="icon iconfont icon-cuotiji"></i>
+          <b>错题强化</b>
         </span>
       </div>
       <div class="row">
@@ -50,10 +56,11 @@
           <i class="icon iconfont icon-shoucang"></i>
           <b>我的收藏</b>
         </span>
-        <span @click="goRouter(6)">
-          <i class="icon iconfont icon-cuotiji"></i>
-          <b>错题强化</b>
+        <span @click="goRouter(7)" v-show="isShow">
+          <i class="icon iconfont icon-dayi"></i>
+          <b>我的答疑</b>
         </span>
+        <span v-show="!isShow" style="background: none;border: none"></span>
       </div>
     </div>
   </div>
@@ -116,7 +123,11 @@
             this.getMyAsk()
             break
           case 8:
+            // 专项练习
             this.$router.push({path: '/special_paper/' + this.$route.params.cid})
+            break
+          case 9:
+            this.$router.push({path: '/zhenti_paper/' + this.$route.params.cid})
             break
         }
       },
